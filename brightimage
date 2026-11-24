@@ -1,0 +1,26 @@
+import cv2
+
+# Read the input image
+img = cv2.imread("image1.png")
+
+# Check whether image is loaded
+if img is None:
+    print("Error: Image not found!")
+else:
+    # Increase image brightness
+    bright = cv2.convertScaleAbs(img, alpha=1, beta=50)
+
+    # Display original image
+    cv2.imshow("Original Image", img)
+
+    # Display bright image
+    cv2.imshow("Bright Image", bright)
+
+    # Save the bright image
+    cv2.imwrite("bright_image1.png", bright)
+
+    print("Image brightness increased successfully!")
+
+    # Wait and close windows
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
